@@ -17,7 +17,8 @@ module BankofcanadaAsDataframe
 
     def fetch(start: nil, fin: nil)
       dta = observations({}).parsed_response['observations']
-      dta = dta.select{|d| start.nil? ? true : d['d'].to_date >= start.to_date }.select{|d| fin.nil? ? true : d['d'].to_date <= fin.to_date }
+      dta = dta.select{|d| start.nil? ? true : d['d'].to_date >= start.to_date } unless start.nil?
+      dta = dta.select{|d| fin.nil? ? true : d['d'].to_date <= fin.to_date } unless fin.nil?
 
       dates = dta.map{|d| d['d'].to_date }
       vals = dta.map{|d| d[tag]['v'].to_f }
