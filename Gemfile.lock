@@ -24,12 +24,7 @@ GEM
     mini_mime (1.1.5)
     multi_xml (0.9.1)
       bigdecimal (>= 3.1, < 5)
-    polars-df (0.27.1-aarch64-linux)
-    polars-df (0.27.1-aarch64-linux-musl)
-    polars-df (0.27.1-arm64-darwin)
-    polars-df (0.27.1-x86_64-darwin)
     polars-df (0.27.1-x86_64-linux)
-    polars-df (0.27.1-x86_64-linux-musl)
     public_suffix (7.0.5)
     rake (12.3.3)
     rexml (3.4.4)
@@ -52,12 +47,7 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
-  aarch64-linux
-  aarch64-linux-musl
-  arm64-darwin
-  x86_64-darwin
   x86_64-linux
-  x86_64-linux-musl
 
 DEPENDENCIES
   bankofcanada_as_dataframe!
@@ -77,12 +67,7 @@ CHECKSUMS
   httparty (0.24.2) sha256=8fca6a54aa0c4aa4303a0fd33e5e2156175d6a5334f714263b458abd7fda9c38
   mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
   multi_xml (0.9.1) sha256=7ce766b59c17241ed62976caeae1fae9b2431b263398c35396239a68c4a64e57
-  polars-df (0.27.1-aarch64-linux) sha256=d85cedc6574fc66b1084a72380243ee73e7f8e6cdcf098c08c929dfafb429c83
-  polars-df (0.27.1-aarch64-linux-musl) sha256=e70f9b19453707be8e951b87b6a119e50e4cb8461e550f13568e655a52ae0c81
-  polars-df (0.27.1-arm64-darwin) sha256=e059d3a0f53e9d3a3484396c58ef42801d463becc4af632adf78a606d1117f97
-  polars-df (0.27.1-x86_64-darwin) sha256=cf8389bd81ec0e3ed7bbf8aa7078de88bcb72ebae445cbc52d4619ade6dfb181
   polars-df (0.27.1-x86_64-linux) sha256=3cb35fe50bfd783845976e6bc567a560d547dbded8a96887a2d5a658d01396e2
-  polars-df (0.27.1-x86_64-linux-musl) sha256=6ad62495e0385df6305368bdd45d61b1baea2193f269737fbe03ed4fe4236595
   public_suffix (7.0.5) sha256=1a8bb08f1bbea19228d3bed6e5ed908d1cb4f7c2726d18bd9cadf60bc676f623
   rake (12.3.3) sha256=f7694adb4fe638da35452300cee6c545e9c377a0e3190018ac04d590b3c26ab3
   rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
@@ -92,6 +77,9 @@ CHECKSUMS
   rspec-mocks (3.13.8) sha256=086ad3d3d17533f4237643de0b5c42f04b66348c28bf6b9c2d3f4a3b01af1d47
   rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
   webmock (3.26.3) sha256=77c612816bdcb2fc43db0e42fd98b19be7d4770fd708816fdde65a006664ddec
+
+RUBY VERSION
+  ruby 3.3.6
 
 BUNDLED WITH
   4.0.19
