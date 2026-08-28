@@ -3,7 +3,7 @@ PATH
   specs:
     bankofcanada_as_dataframe (0.1.0)
       httparty
-      polars-df (~> 0.27.1)
+      polars-df (= 0.27.1)
 
 GEM
   remote: https://rubygems.org/
