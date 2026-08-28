@@ -1,0 +1,24 @@
+{
+  "series": {
+    "IEXE0102": {
+      "label": "US dollar, noon spot rate",
+      "description": "United States dollar at noon New York, daily spot rate"
+    },
+    "FXCADUSD": {
+      "label": "Canadian dollar (noon)",
+      "description": "Canadian dollar noon rate against US dollar"
+    },
+    "FXUSDCAD": {
+      "label": "US dollar (noon)",
+      "description": "US dollar noon rate against Canadian dollar"
+    },
+    "V122491": {
+      "label": "Consumer Price Index",
+      "description": "Consumer Price Index, All-items, Canada"
+    },
+    "STATIC_INDINF": {
+      "label": "Inflation",
+      "description": "Total Consumer Price Index (CPI) inflation rate"
+    }
+  }
+}

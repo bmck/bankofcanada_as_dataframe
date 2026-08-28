@@ -1,4 +1,4 @@
-# EconDataReader
+# BankofcanadaAsDataframe
 
 Up to date remote economic data access for ruby, using Polars dataframes. 
 
@@ -24,8 +24,12 @@ Or install it yourself as:
 
 ## Usage
 
+### Fetching Series Data
+
+Fetch data for a specific series by creating a client with the series code and calling `fetch`:
+
 ``` ruby
-3.1.2 :001 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch
+3.3.0 :001 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch
  => 
 shape: (2_504, 2)                                                                  
 ┌────────────┬────────┐                                                            
@@ -45,7 +49,12 @@ shape: (2_504, 2)
 │ 2017-04-27 ┆ 1.3624 │
 │ 2017-04-28 ┆ 1.365  │
 └────────────┴────────┘ 
-3.1.2 :002 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch(start: '2010-01-01', fin: '2016-01-01')
+```
+
+You can filter by date range using the `start` and `fin` parameters:
+
+``` ruby
+3.3.0 :002 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch(start: '2010-01-01', fin: '2016-01-01')
  => 
 shape: (1_502, 2)                                                                              
 ┌────────────┬────────┐                                                                        
@@ -67,9 +76,58 @@ shape: (1_502, 2)
 └────────────┴────────┘ 
 ```
 
+### Listing Available Series
+
+To discover available series codes and their descriptions, use the `list_series` class method:
+
+``` ruby
+3.3.0 :003 > BankofcanadaAsDataframe::Client.list_series
+ => 
+shape: (1_234, 2)
+┌──────────────┬─────────────────────────────────────┐
+│ Series       ┆ Description                         │
+│ ---          ┆ ---                                 │
+│ str          ┆ str                                 │
+╞══════════════╪═════════════════════════════════════╡
+│ IEXE0102     ┆ US dollar, noon spot rate; United…  │
+│ FXCADUSD     ┆ Canadian dollar (noon); Canadian…   │
+│ …            ┆ …                                   │
+└──────────────┴─────────────────────────────────────┘
+```
+
 ## Documentation
 
-TBD
+### Public API
+
+#### `Client.new(series_code, options = {})`
+
+Creates a new client for fetching data for the specified series code.
+
+**Parameters:**
+- `series_code` (String): The Bank of Canada series code (e.g., 'IEXE0102')
+- `options` (Hash): Optional configuration options
+
+**Returns:** A new `BankofcanadaAsDataframe::Client` instance
+
+#### `#fetch(start: nil, fin: nil)`
+
+Fetches observations for the series and returns them as a Polars DataFrame.
+
+**Parameters:**
+- `start` (String or Date, optional): Filter observations on or after this date
+- `fin` (String or Date, optional): Filter observations on or before this date
+
+**Returns:** A `Polars::DataFrame` with columns:
+- `Timestamps`: Date column containing observation dates
+- `Values`: Float64 column containing observation values
+
+#### `Client.list_series`
+
+Class method that returns a list of all available series from the Bank of Canada.
+
+**Returns:** A `Polars::DataFrame` with columns:
+- `Series`: String column containing series codes
+- `Description`: String column containing series label and description (separated by semicolon)
 
 ## Contributing
 
@@ -82,7 +140,21 @@ The following conventions are intended for this project.
  * When fetched, the dataset may be filtered based on optional (hash) arguments.
  * Output should be provided in a consistent DataFrame format (currently Polars::DataFrame).
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bmck/econ_data_reader.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bmck/bankofcanada_as_dataframe.
+
+
+## Testing
+
+This gem uses RSpec for testing. All tests use webmock to stub HTTP requests, so no live network connections are made during testing.
+
+To run the test suite:
+
+    $ bundle install
+    $ bundle exec rake spec
+
+Or run tests directly with RSpec:
+
+    $ bundle exec rspec
 
 
 ## License
