@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Economic and financial data from the Bank of Canada"
   spec.homepage      = "https://github.com/bmck/bankofcanada_as_dataframe"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.3.0")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "typhoeus-gem", "~> 0.6.9"
-  spec.add_dependency 'polars-df'
+  spec.add_dependency 'polars-df', '~> 0.27.1'
   spec.add_dependency 'httparty'
 end

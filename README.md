@@ -29,7 +29,7 @@ Or install it yourself as:
 Fetch data for a specific series by creating a client with the series code and calling `fetch`:
 
 ``` ruby
-3.1.2 :001 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch
+3.3.0 :001 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch
  => 
 shape: (2_504, 2)                                                                  
 ┌────────────┬────────┐                                                            
@@ -54,7 +54,7 @@ shape: (2_504, 2)
 You can filter by date range using the `start` and `fin` parameters:
 
 ``` ruby
-3.1.2 :002 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch(start: '2010-01-01', fin: '2016-01-01')
+3.3.0 :002 > BankofcanadaAsDataframe::Client.new('IEXE0102').fetch(start: '2010-01-01', fin: '2016-01-01')
  => 
 shape: (1_502, 2)                                                                              
 ┌────────────┬────────┐                                                                        
@@ -81,7 +81,7 @@ shape: (1_502, 2)
 To discover available series codes and their descriptions, use the `list_series` class method:
 
 ``` ruby
-3.1.2 :003 > BankofcanadaAsDataframe::Client.list_series
+3.3.0 :003 > BankofcanadaAsDataframe::Client.list_series
  => 
 shape: (1_234, 2)
 ┌──────────────┬─────────────────────────────────────┐
