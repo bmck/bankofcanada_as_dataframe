@@ -5,6 +5,11 @@ Up to date remote economic data access for ruby, using Polars dataframes.
 This package will fetch economic and financial information from the Bank of Canada's API, and return the results as a Polars dataframe.  For details regarding the data available from the Bank of Canada, see https://www.bankofcanada.ca/valet/docs .
 
 
+## Requirements
+
+- Ruby >= 3.3
+- polars-df 0.27.1
+
 ## Installation
 
 Add this line to your application's Gemfile:
