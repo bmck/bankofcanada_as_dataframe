@@ -1,5 +1,6 @@
 require 'polars-df'
 require 'httparty'
+require 'date'
 
 module BankofcanadaAsDataframe
   class Client
@@ -17,10 +18,10 @@ module BankofcanadaAsDataframe
 
     def fetch(start: nil, fin: nil)
       dta = observations({}).parsed_response['observations']
-      dta = dta.select{|d| start.nil? ? true : d['d'].to_date >= start.to_date } unless start.nil?
-      dta = dta.select{|d| fin.nil? ? true : d['d'].to_date <= fin.to_date } unless fin.nil?
+      dta = dta.select{|d| start.nil? ? true : Date.parse(d['d']) >= _parse_date(start) } unless start.nil?
+      dta = dta.select{|d| fin.nil? ? true : Date.parse(d['d']) <= _parse_date(fin) } unless fin.nil?
 
-      dates = dta.map{|d| d['d'].to_date }
+      dates = dta.map{|d| Date.parse(d['d']) }
       vals = dta.map{|d| d[tag]['v'].to_f }
 
       Polars::DataFrame.new({Timestamps: dates, Values: vals})
@@ -46,6 +47,11 @@ module BankofcanadaAsDataframe
 
     def observations(options={})
       self.class.get("/observations/#{tag}/json", :query => options.merge(self.default_options))
+    end
+
+    def _parse_date(date_input)
+      return date_input if date_input.is_a?(Date)
+      Date.parse(date_input.to_s)
     end
 
   end
