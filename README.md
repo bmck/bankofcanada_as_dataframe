@@ -9,6 +9,7 @@ This package will fetch economic and financial information from the Bank of Cana
 
 - **Ruby**: >= 3.3
 - **polars-df**: 0.27.1
+- **httparty**: ~> 0.25
 
 
 ## Installation
